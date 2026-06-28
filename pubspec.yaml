@@ -1,0 +1,53 @@
+name: lifepilot
+description: "LifePilot AI — a personal life management app. This build targets Flutter Web with local-only storage; Firebase and additional platforms are added in later iterations."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management — providers are written by hand in this iteration
+  # rather than via riverpod_generator's @riverpod annotations. That's
+  # a reasonable thing to switch to as the provider count grows, but
+  # it's an addition to make deliberately later, not a default to
+  # carry unused from day one.
+  flutter_riverpod: ^2.5.1
+
+  # Local persistence (no Firebase yet — see README "Adding Firebase later")
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # Routing
+  go_router: ^14.2.0
+
+  # Charts (per spec: FL Chart)
+  fl_chart: ^0.68.0
+
+  # Fonts for the custom type system (see lib/core/theme)
+  google_fonts: ^6.2.1
+
+  # Value equality for models/state without boilerplate
+  equatable: ^2.0.5
+
+  # SHA-256 hashing for the local PIN (never store secrets in plaintext)
+  crypto: ^3.0.5
+
+  # Unique IDs for local records (will become Firestore doc IDs later)
+  uuid: ^4.4.0
+
+  # Date/number formatting (currency, "Today", etc.)
+  intl: ^0.19.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
